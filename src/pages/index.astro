@@ -60,6 +60,117 @@
         background-image: url("/assets/images/bg3.jpg");
         background-size: cover;
       }
+
+      /* Floating Gift Button Styles */
+      .floating-gift-button {
+        position: fixed;
+        bottom: 25px;
+        right: 25px;
+        z-index: 1000;
+        background: linear-gradient(135deg, #ff6b6b, #ffa726);
+        border-radius: 30px;
+        padding: 8px 15px;
+        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        animation: gentle-pulse 3s ease-in-out infinite;
+        min-width: 120px;
+        justify-content: center;
+        backdrop-filter: blur(10px);
+      }
+
+      .floating-gift-button:hover {
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 8px 25px rgba(255, 107, 107, 0.5);
+        animation: hover-glow 1.5s ease-in-out infinite;
+      }
+
+      .gift-icon-wrapper {
+        background: rgba(255, 255, 255, 0.25);
+        border-radius: 50%;
+        width: 28px;
+        height: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: subtle-bounce 4s ease-in-out infinite;
+      }
+
+      .gift-icon {
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      .gift-text {
+        color: white;
+        font-weight: 600;
+        font-size: 12px;
+        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        letter-spacing: 0.3px;
+      }
+
+      /* Improved Animations */
+      @keyframes gentle-pulse {
+        0%, 100% {
+          box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+          transform: scale(1);
+        }
+        50% {
+          box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+          transform: scale(1.02);
+        }
+      }
+
+      @keyframes hover-glow {
+        0%, 100% {
+          box-shadow: 0 8px 25px rgba(255, 107, 107, 0.5);
+        }
+        50% {
+          box-shadow: 0 8px 30px rgba(255, 107, 107, 0.7);
+        }
+      }
+
+      @keyframes subtle-bounce {
+        0%, 100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        25% {
+          transform: translateY(-1px) rotate(-2deg);
+        }
+        50% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        75% {
+          transform: translateY(-1px) rotate(2deg);
+        }
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .floating-gift-button {
+          bottom: 20px;
+          right: 20px;
+          padding: 6px 12px;
+          min-width: 110px;
+        }
+        
+        .gift-icon-wrapper {
+          width: 24px;
+          height: 24px;
+        }
+        
+        .gift-icon {
+          font-size: 12px;
+        }
+        
+        .gift-text {
+          font-size: 11px;
+        }
+      }
     </style>
   </head>
 
@@ -196,6 +307,14 @@
                   </div>
                 </div>
               </div>
+            </div>
+
+            <!-- Floating Gift Button -->
+            <div class="floating-gift-button" data-toggle="modal" data-target="#bankModal">
+              <div class="gift-icon-wrapper">
+                <i class="ti-money gift-icon"></i>
+              </div>
+              <span class="gift-text">Gửi quà mừng</span>
             </div>
 
             <footer>
